@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2e3440;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+
+    -webkit-box-shadow: inset 0 0 6px white;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 2px 2px 6px white;
+}
+
+/* overrite this if you want to change size of logo */
+* {
+    font-size: 22px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    font-size: 28px;
+    color: white;
+}
+
+p {
+    color: white;
+    font-size: 18px;
+}
+
+button {
+    padding: 0.3rem;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

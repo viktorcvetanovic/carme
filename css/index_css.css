@@ -1,0 +1,18 @@
+.first-half {
+    margin:0 1rem 0 1rem;
+    background-color: #3b4252;
+    min-height: 50vh;
+}
+
+.second-half {
+    background-color: #4c566a;
+    min-height: 50vh;
+}
+
+h1 {
+    text-align: center;
+}
+
+.contact {
+    text-align: center;
+}
