@@ -15,6 +15,12 @@
 <?php
 include('header.php');
 ?>
+<?php
+session_start();
+if (isset($_SESSION['id']) == false) {
+    header('Location: /login.php');
+}
+?>
 <div>
     <div class="first-half">
         <h1>Carpooling, je stigao na nase trziste!</h1>
@@ -52,10 +58,10 @@ include('header.php');
                 <textarea type="text" name="message"> </textarea><br><br>
                 <button type="submit">Posalji email</button>
             </form>
+        </div>
     </div>
-</div>
-<?php
-include('footer.php');
-?>
+    <?php
+    include('footer.php');
+    ?>
 </body>
 </html>
