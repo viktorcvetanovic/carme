@@ -9,17 +9,12 @@
     <link rel="stylesheet" href="css/global_css.css">
     <link rel="stylesheet" href="css/index_css.css">
     <link rel="icon" href="img/logo.png">
+    <script src="js/index.js"></script>
     <link rel="stylesheet" href="css/footer_css.css">
 </head>
 <body>
 <?php
 include('header.php');
-?>
-<?php
-session_start();
-if (isset($_SESSION['id']) == false) {
-    header('Location: /login.php');
-}
 ?>
 <div>
     <div class="first-half">
@@ -45,7 +40,7 @@ if (isset($_SESSION['id']) == false) {
         </div>
     </div>
     <div class="second-half">
-        <div class="contact">
+        <div class="contact" id="contact">
             <h1>Kontakt</h1>
             <form method="post" action="includes/message.inc.php">
                 <label for="fname">Ime:</label><br>
@@ -59,7 +54,13 @@ if (isset($_SESSION['id']) == false) {
                 <button type="submit">Posalji email</button>
             </form>
         </div>
+        <h1 style="text-align: center;margin-top: 3rem">Ponestaje Vam vremena? Carpooling je resenje!</h1>
+        <div class="clock">
+                <canvas id="canvas" width="150" height="150"></canvas>
+        </div>
+
     </div>
+
     <?php
     include('footer.php');
     ?>

@@ -16,3 +16,9 @@ h1 {
 .contact {
     text-align: center;
 }
+
+.clock{
+    margin: 0 auto;
+    margin-top: 2rem;
+    text-align: center;
+}

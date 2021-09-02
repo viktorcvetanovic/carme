@@ -1,0 +1,32 @@
+.for_photo img {
+    width: 300px;
+    height: 300px;
+}
+
+.user_h3 {
+    margin-left: 2rem;
+}
+
+.date_h3 {
+    margin-right: 2rem;
+}
+
+.comments input {
+    font-size: 20px;
+    color: white;
+    background-color: #4c566a;
+    width: 50%;
+    border: none !important;
+    margin-bottom: 0.6rem;
+}
+
+.button_for_comment {
+    background-color: #2e3440;
+    color: white;
+}
+
+.button_for_buy {
+    color: white;
+    background-color: #2e3440;
+}
+

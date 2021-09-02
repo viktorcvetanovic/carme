@@ -1,4 +1,5 @@
 <?php
+include('User.php');
 
 class DataBase
 {
@@ -8,7 +9,8 @@ class DataBase
         $username = $user->getUsername();
         $password = $user->getPassword();
         $email = $user->getEmail();
-        $query = "INSERT INTO user(username,password,email) VALUES('$username','$password','$email')";
+        $role = $user->getRole();
+        $query = "INSERT INTO user(username,password,email,role) VALUES('$username','$password','$email','$role')";
         $conn = mysqli_connect("localhost", "root", "root", "carme");
         return $conn->query($query);
     }
@@ -29,7 +31,7 @@ class DataBase
 
     static function readUserById($id)
     {
-        $query = "SELECT * FROM user WHERE id=$id";
+        $query = "SELECT * FROM user WHERE id='$id'";
         $conn = mysqli_connect("localhost", "root", "root", "carme");
         $user = new User();
         $result = $conn->query($query);
@@ -38,6 +40,7 @@ class DataBase
         $user->setUsername($result[1]);
         $user->setPassword($result[2]);
         $user->setEmail($result[3]);
+        $user->setRole($result[5]);
         return $user;
     }
 
@@ -49,6 +52,13 @@ class DataBase
         $price = $post->getPrice();
         $post_photo = $post->getPostPhoto();
         $query = "INSERT INTO post(header,body,user_fk,price,post_photo) VALUES('$header','$body','$user_fk','$price','$post_photo')";
+        $conn = mysqli_connect("localhost", "root", "root", "carme");
+        return $conn->query($query);
+    }
+
+    static function removePost($post)
+    {
+        $query = "DELETE FROM post WHERE post.id='$post'";
         $conn = mysqli_connect("localhost", "root", "root", "carme");
         return $conn->query($query);
     }
@@ -68,41 +78,9 @@ class DataBase
     }
 
 
-    static function readAllCommentsByPostId($post_id)
+    static function addReservation($user_fk, $post_fk)
     {
-        $query = "select * from comments
-    join post on comments.post_fk = post.id 
-    join user on comments.user_fk = user.id where comments.post_fk=$post_id ";
-        $conn = mysqli_connect("localhost", "root", "root", "carme");
-        $array = [];
-        if ($result = $conn->query($query)) {
-            while ($row = $result->fetch_row()) {
-                $array[] = new CommentUserDTO($row[12], $row[1]);
-            }
-        }
-        return $array;
-    }
-
-    static function readAllCommentsByUserId($user_id)
-    {
-
-        $query = "select * from comments
-    join post on comments.post_fk = post.id 
-    join user on comments.user_fk = user.id where comments.user_fk=$user_id ";
-        $conn = mysqli_connect("localhost", "root", "root", "carme");
-        $array = [];
-        if ($result = $conn->query($query)) {
-            while ($row = $result->fetch_row()) {
-                $array[] = new CommentUserDTO($row[12], $row[1]);
-            }
-        }
-        return $array;
-    }
-
-
-    static function addComment($commentar_body, $user_fk, $post_fk)
-    {
-        $query = "INSERT INTO comments(commentar_body,user_fk,post_fk) VALUES('$commentar_body','$user_fk','$post_fk')";
+        $query = "INSERT INTO reservation(user_fk,post_fk) VALUES('$user_fk','$post_fk')";
         $conn = mysqli_connect("localhost", "root", "root", "carme");
         return $conn->query($query);
     }

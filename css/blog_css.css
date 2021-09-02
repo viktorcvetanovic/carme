@@ -1,0 +1,78 @@
+* {
+    color: white;
+    text-align: center;
+}
+
+body {
+    background-color: #2e3440;
+}
+
+.wrapper_for_profile {
+    background-color: #4c566a;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.profile_photo {
+    margin-right: 1rem;
+}
+
+.wrapper_for_blog {
+
+    max-width: 50%;
+    margin: 0 auto;
+    border-radius: 2%;
+    margin-top: 1rem;
+    padding: 1px;
+}
+
+.wrapper_for_navbar {
+    background-color: #4c566a;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper_for_navbar img {
+    width: 150px;
+}
+
+.profile_photo img {
+    width: 75px;
+    height: 75px;
+}
+
+.profile_photo {
+    background-color: #18191a;
+    border-radius: 10%;
+}
+
+.profile_name {
+    margin-right: 1rem;
+}
+
+.wrapper_for_profile {
+    margin-right: 1rem;
+}
+
+.add_post h3 {
+    text-align: left;
+    cursor: pointer;
+}
+
+.goto_profile {
+    cursor: pointer;
+}
+
+.goto_profile:hover {
+    color: #4c566a;
+}
+
+.add_post h3 a:hover {
+    color: #4c566a;
+}
+
+.post div {
+    margin-top: 2rem;
+}
